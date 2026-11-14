@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>TASKFLOW — Make Every Day Count</title>
+    <meta name="description" content="TASKFLOW — Premium editorial productivity software. Organize your daily priorities with timeless precision." />
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-[#101110] text-[#F1F0EA] antialiased selection:bg-[#C5A46D]/20 selection:text-[#F1F0EA] overflow-x-hidden min-h-screen">
+    <div id="root"></div>
+    <script>
+      if (window.location.protocol === 'file:') {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;flex-direction:column;font-family:Inter,system-ui,sans-serif;background:#101110;color:#F1F0EA;text-align:center;padding:24px;">' +
+            '<div style="width:48px;height:48px;border-radius:12px;background:#C5A46D;color:#101110;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:18px;margin-bottom:16px;">TF</div>' +
+            '<h1 style="color:#F1F0EA;font-size:24px;font-weight:600;margin:0 0 8px 0;">TASKFLOW</h1>' +
+            '<p style="color:#C5A46D;font-size:12px;letter-spacing:1px;text-transform:uppercase;margin:0 0 20px 0;">Make Every Day Count.</p>' +
+            '<p style="color:#92948C;font-size:14px;max-width:480px;line-height:1.6;margin:0 0 24px 0;">Modern React & Vite web applications must run through their local development server rather than directly opening the file. Click below to open your running TASKFLOW application:</p>' +
+            '<a href="http://localhost:5173/" style="background:linear-gradient(135deg, #C5A46D, #D4B57E);color:#101110;padding:12px 28px;border-radius:8px;font-weight:600;font-size:14px;text-decoration:none;box-shadow:0 4px 20px rgba(197,164,109,0.35);">Open http://localhost:5173/</a>' +
+            '</div>';
+        });
+      }
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

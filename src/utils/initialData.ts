@@ -1,0 +1,157 @@
+import type { Task, Workspace, SystemNotification } from '../types/task';
+import { getTodayString, getOffsetDateString } from './dateUtils';
+
+export const INITIAL_WORKSPACES: Workspace[] = [
+  { id: 'ws-1', name: "Shivam's Studio", role: 'Owner', initials: 'SS' },
+  { id: 'ws-2', name: 'Personal Systems', role: 'Personal', initials: 'PS' },
+  { id: 'ws-3', name: 'Research Lab', role: 'Collaborator', initials: 'RL' },
+];
+
+export const INITIAL_NOTIFICATIONS: SystemNotification[] = [
+  {
+    id: 'notif-1',
+    title: 'Design review approaching',
+    description: 'Q4 Product Design System Audit is scheduled for today at 3:30 PM.',
+    timestamp: '10m ago',
+    read: false,
+    type: 'reminder',
+  },
+  {
+    id: 'notif-2',
+    title: 'Weekly Focus Active',
+    description: 'Your workspace cadence is currently on track with 4 completed tasks.',
+    timestamp: '2h ago',
+    read: false,
+    type: 'system',
+  },
+];
+
+export function getInitialTasks(): Task[] {
+  const today = getTodayString();
+  const tomorrow = getOffsetDateString(1);
+  const inTwoDays = getOffsetDateString(2);
+  const inFourDays = getOffsetDateString(4);
+  const yesterday = getOffsetDateString(-1);
+
+  return [
+    {
+      id: 'task-101',
+      title: 'Review Q4 design system audit tokens & typography scale',
+      description: 'Ensure color contrasts comply with WCAG AA standards and refine champagne accent tokens.',
+      category: 'Work',
+      priority: 'high',
+      dueDate: today,
+      dueTime: '11:00',
+      completed: false,
+      important: true,
+      createdAt: new Date(Date.now() - 86400000 * 2).toISOString(),
+      updatedAt: new Date(Date.now() - 86400000).toISOString(),
+    },
+    {
+      id: 'task-102',
+      title: 'Finalize commercial SaaS onboarding architecture memo',
+      description: 'Document step-by-step user onboarding flow with minimal cognitive friction.',
+      category: 'Work',
+      priority: 'high',
+      dueDate: today,
+      dueTime: '14:30',
+      completed: false,
+      important: true,
+      createdAt: new Date(Date.now() - 86400000).toISOString(),
+      updatedAt: new Date(Date.now() - 3600000 * 4).toISOString(),
+    },
+    {
+      id: 'task-103',
+      title: 'Complete Chapter 4 notes on distributed systems consensus',
+      description: 'Summarize Raft vs Paxos leader election protocols and log replication trade-offs.',
+      category: 'Study',
+      priority: 'medium',
+      dueDate: today,
+      dueTime: '17:00',
+      completed: false,
+      important: false,
+      createdAt: new Date(Date.now() - 86400000 * 3).toISOString(),
+      updatedAt: new Date(Date.now() - 86400000 * 2).toISOString(),
+    },
+    {
+      id: 'task-104',
+      title: 'Morning desk ergonomics and posture adjustment',
+      description: 'Check monitor height, ergonomic armrests, and schedule 45-minute focus intervals.',
+      category: 'Personal',
+      priority: 'low',
+      dueDate: today,
+      dueTime: '09:00',
+      completed: true,
+      completedAt: new Date(Date.now() - 3600000 * 3).toISOString(),
+      important: false,
+      createdAt: new Date(Date.now() - 86400000).toISOString(),
+      updatedAt: new Date(Date.now() - 3600000 * 3).toISOString(),
+    },
+    {
+      id: 'task-105',
+      title: 'Prepare executive slides for quarterly sprint retrospective',
+      description: 'Highlight shipping velocity, key design decisions, and system latency improvements.',
+      category: 'Work',
+      priority: 'medium',
+      dueDate: tomorrow,
+      dueTime: '10:00',
+      completed: false,
+      important: false,
+      createdAt: new Date(Date.now() - 86400000 * 2).toISOString(),
+      updatedAt: new Date(Date.now() - 86400000).toISOString(),
+    },
+    {
+      id: 'task-106',
+      title: 'Review Swiss International Style typography specimens',
+      description: 'Analyze grid proportions, baseline alignment, and typographic hierarchy in Emil Ruder works.',
+      category: 'Study',
+      priority: 'low',
+      dueDate: tomorrow,
+      dueTime: '16:00',
+      completed: false,
+      important: false,
+      createdAt: new Date(Date.now() - 86400000).toISOString(),
+      updatedAt: new Date(Date.now() - 3600000 * 5).toISOString(),
+    },
+    {
+      id: 'task-107',
+      title: 'Schedule annual vehicle inspection & maintenance service',
+      description: 'Book morning slot with authorized center and review tire pressure sensor logs.',
+      category: 'Personal',
+      priority: 'medium',
+      dueDate: inTwoDays,
+      dueTime: '12:00',
+      completed: false,
+      important: false,
+      createdAt: new Date(Date.now() - 86400000 * 3).toISOString(),
+      updatedAt: new Date(Date.now() - 86400000 * 2).toISOString(),
+    },
+    {
+      id: 'task-108',
+      title: 'Tax invoice reconciliation & expense categorization for Q3',
+      description: 'Export Stripe and bank statements, reconcile receipts in accounting sheet.',
+      category: 'Other',
+      priority: 'high',
+      dueDate: inFourDays,
+      dueTime: '15:00',
+      completed: false,
+      important: true,
+      createdAt: new Date(Date.now() - 86400000 * 4).toISOString(),
+      updatedAt: new Date(Date.now() - 86400000 * 3).toISOString(),
+    },
+    {
+      id: 'task-109',
+      title: 'Inspect database index performance on task query patterns',
+      description: 'Examine query execution plans and optimize composite indexes for filtered status queries.',
+      category: 'Work',
+      priority: 'medium',
+      dueDate: yesterday,
+      dueTime: '18:00',
+      completed: true,
+      completedAt: new Date(Date.now() - 86400000).toISOString(),
+      important: false,
+      createdAt: new Date(Date.now() - 86400000 * 4).toISOString(),
+      updatedAt: new Date(Date.now() - 86400000).toISOString(),
+    },
+  ];
+}
